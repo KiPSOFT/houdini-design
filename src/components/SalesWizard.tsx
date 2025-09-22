@@ -4,6 +4,7 @@ import WizardStepper from './WizardStepper';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import StepFour from './StepFour';
+import StepFive from './StepFive';
 
 interface ServiceOption {
   id: string;
@@ -146,6 +147,17 @@ const SalesWizard: React.FC = () => {
   const handleStepFourBack = () => {
     setCurrentStep(3);
     setCompletedSteps([1, 2]);
+  };
+
+  const handleStepFiveNext = (data: { selectedProducts: any[] }) => {
+    setWizardData({ ...wizardData, ...data });
+    setCompletedSteps([1, 2, 3, 4, 5]);
+    setCurrentStep(6);
+  };
+
+  const handleStepFiveBack = () => {
+    setCurrentStep(4);
+    setCompletedSteps([1, 2, 3]);
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
@@ -311,7 +323,15 @@ const SalesWizard: React.FC = () => {
           />
         )}
 
-        {currentStep >= 5 && (
+        {currentStep === 5 && (
+          <StepFive 
+            onNext={handleStepFiveNext}
+            onBack={handleStepFiveBack}
+            selectedCampaigns={wizardData.selectedCampaigns || []}
+          />
+        )}
+
+        {currentStep >= 6 && (
           <div className="text-center py-20">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
               Sonraki Adımlar Geliştiriliyor
