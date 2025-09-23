@@ -159,6 +159,7 @@ const SalesWizard: React.FC = () => {
     setCurrentStep(4);
     setCompletedSteps([1, 2, 3]);
   };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       {/* Header */}
@@ -170,6 +171,8 @@ const SalesWizard: React.FC = () => {
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <span className="font-bold text-xl text-slate-800">Sanal Santral Houdini</span>
+            </div>
+            <button className="flex items-center space-x-2 text-slate-600 hover:text-slate-800 transition-colors">
               <User className="w-4 h-4" />
               <span>Giriş Yap</span>
             </button>
@@ -227,7 +230,6 @@ const SalesWizard: React.FC = () => {
                     animation: 'slideUp 0.6s ease-out forwards'
                   }}
                 >
-                  <div className={`p-6 rounded-xl border-2 ${option.bgColor} ${selectedOption === option.id ? 'border-blue-500' : ''} transition-all duration-200`}>
                   <div className={`p-6 rounded-xl border-2 ${option.bgColor} ${selectedOption === option.id ? 'border-pink-500' : ''} transition-all duration-200`}>
                     <div className="flex items-start space-x-4">
                       <div className={`flex-shrink-0 p-3 rounded-lg ${option.color} bg-white shadow-sm`}>
