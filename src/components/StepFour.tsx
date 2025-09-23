@@ -134,3 +134,9 @@ const StepFour: React.FC<StepFourProps> = ({ onNext, onBack }) => {
               }}
             >
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          )
+    }
+    )
+    }
+  )
+}
