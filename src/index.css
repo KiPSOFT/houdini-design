@@ -23,6 +23,13 @@
       transform: translateY(0);
     }
   }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 /* Custom scrollbar */

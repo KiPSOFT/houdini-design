@@ -163,7 +163,7 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
     <div className="max-w-7xl mx-auto space-y-8">
       {/* Header */}
       <div className="text-center space-y-4">
-        <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+        <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-pink-100 to-orange-100 text-orange-800 rounded-full text-sm font-medium">
           <ShoppingCart className="w-4 h-4 mr-2" />
           Ürünler
         </div>
@@ -209,7 +209,7 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
               {products.map((product, index) => (
                 <div
                   key={product.id}
-                  className="border border-slate-200 rounded-xl p-4 hover:border-blue-300 transition-all duration-200"
+                  className="border border-slate-200 rounded-xl p-4 hover:border-pink-300 transition-all duration-200"
                   style={{
                     animationDelay: `${index * 100}ms`,
                     animation: 'slideUp 0.6s ease-out forwards'
@@ -240,11 +240,11 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
                                 max="99"
                                 value={product.quantity || 0}
                                 onChange={(e) => updateProductQuantity(product.id, parseInt(e.target.value) || 0)}
-                                className="w-16 px-2 py-1 border border-slate-300 rounded-lg text-center text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none"
+                                className="w-16 px-2 py-1 border border-slate-300 rounded-lg text-center text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-100 outline-none"
                               />
                               <button
                                 onClick={() => updateProductQuantity(product.id, (product.quantity || 0) + 1)}
-                                className="px-3 py-1 bg-blue-100 text-blue-600 rounded-lg text-sm hover:bg-blue-200 transition-colors"
+                                className="px-3 py-1 bg-pink-100 text-pink-600 rounded-lg text-sm hover:bg-pink-200 transition-colors"
                               >
                                 1. Numara seçimi
                               </button>
@@ -255,7 +255,7 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
                             <select
                               value={product.selectedOption}
                               onChange={(e) => updateProductOption(product.id, e.target.value)}
-                              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none"
+                              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-100 outline-none"
                             >
                               {product.options.map(option => (
                                 <option key={option} value={option}>{option}</option>
@@ -272,7 +272,7 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
                                 className="sr-only"
                               />
                               <div className={`w-10 h-6 rounded-full transition-colors ${
-                                product.enabled ? 'bg-blue-600' : 'bg-slate-300'
+                                product.enabled ? 'bg-gradient-to-r from-pink-500 to-purple-600' : 'bg-slate-300'
                               }`}>
                                 <div className={`w-4 h-4 bg-white rounded-full shadow-sm transition-transform mt-1 ${
                                   product.enabled ? 'translate-x-5' : 'translate-x-1'
@@ -320,14 +320,14 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
                 <span className="font-semibold text-slate-900">₺{calculateOneTimeTotal().toFixed(2)}</span>
               </div>
               
-              <div className="bg-blue-50 rounded-lg p-4 mt-4">
+              <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-4 mt-4">
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold text-blue-900">Toplam İlk Ödeme</span>
-                  <span className="text-2xl font-bold text-blue-900">
+                  <span className="font-semibold text-purple-900">Toplam İlk Ödeme</span>
+                  <span className="text-2xl font-bold text-purple-900">
                     ₺{(calculateMonthlyTotal() + calculateOneTimeTotal()).toFixed(2)}
                   </span>
                 </div>
-                <p className="text-blue-700 text-sm mt-1">
+                <p className="text-purple-700 text-sm mt-1">
                   Sonraki aylar: ₺{calculateMonthlyTotal().toFixed(2)}/ay
                 </p>
               </div>
@@ -335,7 +335,7 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
 
             <button
               onClick={handleNext}
-              className="w-full mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+              className="w-full mt-6 bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 text-white py-4 rounded-xl font-semibold hover:from-pink-600 hover:via-purple-600 hover:to-orange-600 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
             >
               <ShoppingCart className="w-5 h-5" />
               <span>Siparişi Tamamla</span>
