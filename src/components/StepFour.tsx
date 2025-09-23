@@ -133,4 +133,4 @@ const StepFour: React.FC<StepFourProps> = ({ onNext, onBack }) => {
                 animation: 'slideUp 0.6s ease-out forwards'
               }}
             >
-              <div className="bg-white rounded-2xl shadow-lg overflow
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
