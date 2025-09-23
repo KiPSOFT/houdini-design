@@ -63,6 +63,7 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
       {/* Header */}
       <div className="text-center space-y-4">
         <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+        <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-purple-800 rounded-full text-sm font-medium">
           <Percent className="w-4 h-4 mr-2" />
           Ödeme Planı
         </div>
@@ -82,7 +83,7 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
             key={plan.id}
             className={`relative cursor-pointer transition-all duration-300 transform ${
               selectedPlan === plan.id 
-                ? 'scale-[1.02] shadow-lg ring-2 ring-blue-500' 
+               ? 'scale-[1.02] shadow-lg ring-2 ring-pink-500' 
                 : 'hover:scale-[1.01] hover:shadow-md'
             }`}
             onClick={() => setSelectedPlan(plan.id)}
@@ -92,6 +93,7 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
             }}
           >
             <div className={`p-6 rounded-xl border-2 ${plan.bgColor} ${selectedPlan === plan.id ? 'border-blue-500' : ''} transition-all duration-200`}>
+           <div className={`p-6 rounded-xl border-2 ${plan.bgColor} ${selectedPlan === plan.id ? 'border-pink-500' : ''} transition-all duration-200`}>
               {/* Badge */}
               {plan.badge && (
                 <div className="absolute -top-3 left-6">
@@ -127,7 +129,7 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
                 {/* Selection indicator */}
                 <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
                   selectedPlan === plan.id 
-                    ? 'border-blue-500 bg-blue-500' 
+                   ? 'border-pink-500 bg-gradient-to-r from-pink-500 to-purple-600' 
                     : 'border-slate-300'
                 }`}>
                   {selectedPlan === plan.id && (
@@ -141,14 +143,14 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
       </div>
 
       {/* Info Box */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+      <div className="bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl p-6">
         <div className="flex items-start space-x-3">
-          <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-            <Calendar className="w-4 h-4 text-blue-600" />
+          <div className="flex-shrink-0 w-8 h-8 bg-pink-100 rounded-lg flex items-center justify-center">
+            <Calendar className="w-4 h-4 text-pink-600" />
           </div>
           <div className="flex-1">
-            <h4 className="font-semibold text-blue-900 mb-1">Ödeme Bilgisi</h4>
-            <p className="text-blue-800 text-sm leading-relaxed">
+            <h4 className="font-semibold text-purple-900 mb-1">Ödeme Bilgisi</h4>
+            <p className="text-purple-800 text-sm leading-relaxed">
               Yıllık ödeme seçeneği ile %20 tasarruf sağlayabilirsiniz. 
               Ödeme planınızı istediğiniz zaman değiştirebilirsiniz.
             </p>
@@ -172,7 +174,7 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
           className={`
             flex items-center space-x-2 px-8 py-4 rounded-xl font-semibold transition-all duration-200
             ${isValid
-              ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transform hover:scale-[1.02]'
+              ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 text-white hover:from-pink-600 hover:via-purple-600 hover:to-orange-600 shadow-lg hover:shadow-xl transform hover:scale-[1.02]'
               : 'bg-slate-200 text-slate-400 cursor-not-allowed'
             }
           `}

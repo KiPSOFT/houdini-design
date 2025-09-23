@@ -160,9 +160,9 @@ const SalesWizard: React.FC = () => {
     setCompletedSteps([1, 2, 3]);
   };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+      <header className="bg-white/80 backdrop-blur-md border-b border-primary-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
@@ -170,8 +170,6 @@ const SalesWizard: React.FC = () => {
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <span className="font-bold text-xl text-slate-800">Sanal Santral Houdini</span>
-            </div>
-            <button className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
               <User className="w-4 h-4" />
               <span>Giriş Yap</span>
             </button>
@@ -196,14 +194,14 @@ const SalesWizard: React.FC = () => {
           <div className="space-y-8">
             {/* Hero Section */}
             <div className="text-center lg:text-left space-y-6">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-purple-800 rounded-full text-sm font-medium">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Başlayalım
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
                 Ne yapmak 
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> istiyorsunuz?</span>
+                <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 bg-clip-text text-transparent"> istiyorsunuz?</span>
               </h1>
               
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -218,7 +216,7 @@ const SalesWizard: React.FC = () => {
                   key={option.id}
                   className={`relative cursor-pointer transition-all duration-300 transform ${
                     selectedOption === option.id 
-                      ? 'scale-[1.02] shadow-lg ring-2 ring-blue-500' 
+                      ? 'scale-[1.02] shadow-lg ring-2 ring-pink-500' 
                       : isHovering === option.id ? 'scale-[1.01] shadow-md' : 'hover:shadow-sm'
                   }`}
                   onClick={() => setSelectedOption(option.id)}
@@ -230,6 +228,7 @@ const SalesWizard: React.FC = () => {
                   }}
                 >
                   <div className={`p-6 rounded-xl border-2 ${option.bgColor} ${selectedOption === option.id ? 'border-blue-500' : ''} transition-all duration-200`}>
+                  <div className={`p-6 rounded-xl border-2 ${option.bgColor} ${selectedOption === option.id ? 'border-pink-500' : ''} transition-all duration-200`}>
                     <div className="flex items-start space-x-4">
                       <div className={`flex-shrink-0 p-3 rounded-lg ${option.color} bg-white shadow-sm`}>
                         {option.icon}
@@ -243,7 +242,7 @@ const SalesWizard: React.FC = () => {
                         </p>
                       </div>
                       <div className={`flex-shrink-0 transition-all duration-200 ${
-                        selectedOption === option.id ? 'scale-110 text-blue-600' : 'text-slate-400'
+                        selectedOption === option.id ? 'scale-110 text-pink-600' : 'text-slate-400'
                       }`}>
                         <ArrowRight className="w-5 h-5" />
                       </div>
@@ -251,7 +250,7 @@ const SalesWizard: React.FC = () => {
                     
                     {/* Selection indicator */}
                     {selectedOption === option.id && (
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                       </div>
                     )}
@@ -265,7 +264,7 @@ const SalesWizard: React.FC = () => {
               <div className="animate-slideUp">
                 <button
                   onClick={handleContinue}
-                  className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                  className="w-full sm:w-auto bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-pink-600 hover:via-purple-600 hover:to-orange-600 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                 >
                   <span>Devam Et</span>
                   <ArrowRight className="w-5 h-5" />
@@ -278,14 +277,14 @@ const SalesWizard: React.FC = () => {
           <div className="hidden lg:block">
             <div className="relative">
               {/* Background decorative elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-3xl transform rotate-3"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-200/30 to-pink-200/30 rounded-3xl transform -rotate-3"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-200/30 to-purple-200/30 rounded-3xl transform rotate-3"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-200/30 to-orange-200/30 rounded-3xl transform -rotate-3"></div>
               
               {/* Main illustration container */}
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
                 <div className="text-center space-y-6">
                   {/* Character illustration placeholder */}
-                  <div className="w-64 h-64 mx-auto bg-gradient-to-br from-pink-300 to-purple-400 rounded-full flex items-center justify-center shadow-2xl">
+                  <div className="w-64 h-64 mx-auto bg-gradient-to-br from-pink-400 via-purple-400 to-orange-400 rounded-full flex items-center justify-center shadow-2xl">
                     <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
                       <User className="w-16 h-16 text-slate-600" />
                     </div>

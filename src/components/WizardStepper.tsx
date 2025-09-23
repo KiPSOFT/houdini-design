@@ -34,7 +34,7 @@ const WizardStepper: React.FC<WizardStepperProps> = ({ steps, currentStep, compl
                       ${isCompleted 
                         ? 'bg-green-500 text-white shadow-lg' 
                         : isCurrent 
-                        ? 'bg-blue-600 text-white shadow-lg ring-4 ring-blue-200' 
+                        ? 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-lg ring-4 ring-pink-200' 
                         : 'bg-slate-200 text-slate-500'
                       }
                     `}
@@ -47,7 +47,7 @@ const WizardStepper: React.FC<WizardStepperProps> = ({ steps, currentStep, compl
                     
                     {/* Pulse animation for current step */}
                     {isCurrent && (
-                      <div className="absolute inset-0 rounded-full bg-blue-600 animate-ping opacity-20"></div>
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 animate-ping opacity-20"></div>
                     )}
                   </div>
                   
@@ -56,7 +56,7 @@ const WizardStepper: React.FC<WizardStepperProps> = ({ steps, currentStep, compl
                     <div
                       className={`
                         text-xs font-medium transition-colors duration-200
-                        ${isCurrent ? 'text-blue-600' : isCompleted ? 'text-green-600' : 'text-slate-500'}
+                        ${isCurrent ? 'text-pink-600' : isCompleted ? 'text-green-600' : 'text-slate-500'}
                       `}
                     >
                       {step.title}
@@ -76,7 +76,7 @@ const WizardStepper: React.FC<WizardStepperProps> = ({ steps, currentStep, compl
                         ${isCompleted || (isCurrent && index < currentStep - 1)
                           ? 'bg-green-500' 
                           : isCurrent && index === currentStep - 1
-                          ? 'bg-gradient-to-r from-blue-600 to-slate-200'
+                          ? 'bg-gradient-to-r from-pink-500 to-slate-200'
                           : 'bg-slate-200'
                         }
                       `}
