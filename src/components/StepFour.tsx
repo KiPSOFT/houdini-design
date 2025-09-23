@@ -267,3 +267,5 @@ const StepFour: React.FC<StepFourProps> = ({ onNext, onBack }) => {
     </div>
   );
 };
+
+export default StepFour;
