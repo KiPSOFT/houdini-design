@@ -101,7 +101,7 @@ const StepFour: React.FC<StepFourProps> = ({ onNext, onBack }) => {
     <div className="max-w-6xl mx-auto space-y-8">
       {/* Header */}
       <div className="text-center space-y-4">
-        <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
+        <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-pink-100 to-orange-100 text-orange-800 rounded-full text-sm font-medium">
           <Gift className="w-4 h-4 mr-2" />
           Kampanyalar
         </div>
@@ -124,7 +124,7 @@ const StepFour: React.FC<StepFourProps> = ({ onNext, onBack }) => {
               key={campaign.id}
               className={`relative cursor-pointer transition-all duration-300 transform ${
                 isSelected 
-                  ? 'scale-[1.02] shadow-2xl ring-2 ring-blue-500' 
+                  ? 'scale-[1.02] shadow-2xl ring-2 ring-pink-500' 
                   : 'hover:scale-[1.01] hover:shadow-xl'
               }`}
               onClick={() => toggleCampaign(campaign.id)}
@@ -133,172 +133,4 @@ const StepFour: React.FC<StepFourProps> = ({ onNext, onBack }) => {
                 animation: 'slideUp 0.6s ease-out forwards'
               }}
             >
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-transparent hover:border-blue-200 transition-all duration-200">
-                {/* Badge */}
-                {campaign.badge && (
-                  <div className="absolute top-4 left-4 z-10">
-                    <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
-                      <Star className="w-3 h-3" />
-                      <span>{campaign.badge}</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Selection Indicator */}
-                <div className="absolute top-4 right-4 z-10">
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
-                    isSelected 
-                      ? 'border-blue-500 bg-blue-500' 
-                      : 'border-white bg-white/80 backdrop-blur-sm'
-                  }`}>
-                    {isSelected && (
-                      <Check className="w-3 h-3 text-white" />
-                    )}
-                  </div>
-                </div>
-
-                {/* Campaign Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <div className={`absolute inset-0 ${campaign.bgColor} opacity-90`}></div>
-                  <img 
-                    src={campaign.imageUrl} 
-                    alt={campaign.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  
-                  {/* Title Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white font-bold text-lg mb-1">
-                      {campaign.title}
-                    </h3>
-                    <p className="text-white/90 text-sm">
-                      {campaign.subtitle}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  {/* Price */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      {campaign.originalPrice && (
-                        <span className="text-slate-400 line-through text-sm">
-                          {campaign.originalPrice}
-                        </span>
-                      )}
-                      <span className="text-2xl font-bold text-slate-900">
-                        {campaign.discountedPrice}
-                      </span>
-                      <span className="text-slate-600 text-sm">/ay</span>
-                    </div>
-                    {campaign.originalPrice && (
-                      <div className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
-                        İndirimli
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    {campaign.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-slate-900 text-sm">Özellikler:</h4>
-                    <div className="grid grid-cols-1 gap-1">
-                      {campaign.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-2">
-                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full flex-shrink-0"></div>
-                          <span className="text-slate-600 text-xs">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Selection Overlay */}
-                {isSelected && (
-                  <div className="absolute inset-0 bg-blue-500/10 rounded-2xl pointer-events-none"></div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Selected Campaigns Summary */}
-      {selectedCampaigns.length > 0 && (
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6 animate-slideUp">
-          <div className="flex items-start space-x-3">
-            <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-              <Check className="w-4 h-4 text-blue-600" />
-            </div>
-            <div className="flex-1">
-              <h4 className="font-semibold text-blue-900 mb-2">
-                Seçilen Kampanyalar ({selectedCampaigns.length})
-              </h4>
-              <div className="space-y-1">
-                {selectedCampaigns.map(campaignId => {
-                  const campaign = campaigns.find(c => c.id === campaignId);
-                  return campaign ? (
-                    <div key={campaignId} className="flex items-center justify-between text-sm">
-                      <span className="text-blue-800">{campaign.title}</span>
-                      <span className="font-semibold text-blue-900">{campaign.discountedPrice}/ay</span>
-                    </div>
-                  ) : null;
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Info Box */}
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-6">
-        <div className="flex items-start space-x-3">
-          <div className="flex-shrink-0 w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
-            <Zap className="w-4 h-4 text-amber-600" />
-          </div>
-          <div className="flex-1">
-            <h4 className="font-semibold text-amber-900 mb-1">Kampanya Bilgisi</h4>
-            <p className="text-amber-800 text-sm leading-relaxed">
-              Birden fazla kampanya seçebilirsiniz. Seçtiğiniz kampanyalar bir sonraki adımda 
-              detaylandırılacak ve toplam fiyatlandırma gösterilecektir.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <div className="flex justify-between items-center">
-        <button
-          onClick={onBack}
-          className="flex items-center space-x-2 px-6 py-3 text-slate-600 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-all duration-200"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          <span>Geri</span>
-        </button>
-
-        <button
-          onClick={handleNext}
-          disabled={!isValid}
-          className={`
-            flex items-center space-x-2 px-8 py-4 rounded-xl font-semibold transition-all duration-200
-            ${isValid
-              ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transform hover:scale-[1.02]'
-              : 'bg-slate-200 text-slate-400 cursor-not-allowed'
-            }
-          `}
-        >
-          <span>Devam Et ({selectedCampaigns.length})</span>
-          <ArrowRight className="w-5 h-5" />
-        </button>
-      </div>
-    </div>
-  );
-};
-
-export default StepFour;
+              <div className="bg-white rounded-2xl shadow-lg overflow
