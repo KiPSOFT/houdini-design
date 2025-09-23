@@ -62,7 +62,6 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
     <div className="max-w-2xl mx-auto space-y-8">
       {/* Header */}
       <div className="text-center space-y-4">
-        <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
         <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-purple-800 rounded-full text-sm font-medium">
           <Percent className="w-4 h-4 mr-2" />
           Ödeme Planı
@@ -83,7 +82,7 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
             key={plan.id}
             className={`relative cursor-pointer transition-all duration-300 transform ${
               selectedPlan === plan.id 
-               ? 'scale-[1.02] shadow-lg ring-2 ring-pink-500' 
+                ? 'scale-[1.02] shadow-lg ring-2 ring-pink-500' 
                 : 'hover:scale-[1.01] hover:shadow-md'
             }`}
             onClick={() => setSelectedPlan(plan.id)}
@@ -92,8 +91,7 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
               animation: 'slideUp 0.6s ease-out forwards'
             }}
           >
-            <div className={`p-6 rounded-xl border-2 ${plan.bgColor} ${selectedPlan === plan.id ? 'border-blue-500' : ''} transition-all duration-200`}>
-           <div className={`p-6 rounded-xl border-2 ${plan.bgColor} ${selectedPlan === plan.id ? 'border-pink-500' : ''} transition-all duration-200`}>
+            <div className={`p-6 rounded-xl border-2 ${plan.bgColor} ${selectedPlan === plan.id ? 'border-pink-500' : ''} transition-all duration-200`}>
               {/* Badge */}
               {plan.badge && (
                 <div className="absolute -top-3 left-6">
@@ -129,7 +127,7 @@ const StepThree: React.FC<StepThreeProps> = ({ onNext, onBack }) => {
                 {/* Selection indicator */}
                 <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
                   selectedPlan === plan.id 
-                   ? 'border-pink-500 bg-gradient-to-r from-pink-500 to-purple-600' 
+                    ? 'border-pink-500 bg-gradient-to-r from-pink-500 to-purple-600' 
                     : 'border-slate-300'
                 }`}>
                   {selectedPlan === plan.id && (
