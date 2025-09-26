@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, Phone, Plane, Mic, Hash, Megaphone, Zap, Info, X, ShoppingCart } from 'lucide-react';
+import NumberSelectionModal from './NumberSelectionModal';
 
 interface Product {
   id: string;
@@ -24,6 +25,10 @@ interface StepFiveProps {
 }
 
 const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }) => {
+  const [products, setProducts] = useState<Product[]>([
+  const [isNumberModalOpen, setIsNumberModalOpen] = useState(false);
+  const [selectedNumberOption, setSelectedNumberOption] = useState<'new' | 'transfer' | null>(null);
+
   const [products, setProducts] = useState<Product[]>([
     {
       id: 'virtual-pbx',
@@ -244,9 +249,13 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
                               />
                               <button
                                 onClick={() => updateProductQuantity(product.id, (product.quantity || 0) + 1)}
-                                className="px-3 py-1 bg-pink-100 text-pink-600 rounded-lg text-sm hover:bg-pink-200 transition-colors"
+                                onClick={() => setIsNumberModalOpen(true)}
+                                className="px-3 py-1 bg-gradient-to-r from-pink-100 to-purple-100 text-pink-600 rounded-lg text-sm hover:from-pink-200 hover:to-purple-200 transition-all duration-200 font-medium"
                               >
-                                1. Numara seçimi
+                                {selectedNumberOption ? 
+                                  (selectedNumberOption === 'new' ? 'Yeni Numara' : 'Numara Taşıma') 
+                                  : 'Numara Seçimi'
+                                }
                               </button>
                             </div>
                           )}
@@ -343,6 +352,16 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
           </div>
         </div>
       </div>
+
+      {/* Number Selection Modal */}
+      <NumberSelectionModal
+        isOpen={isNumberModalOpen}
+        onClose={() => setIsNumberModalOpen(false)}
+        onSelect={(option) => {
+          setSelectedNumberOption(option);
+          setIsNumberModalOpen(false);
+        }}
+      />
 
       {/* Navigation */}
       <div className="flex justify-between items-center">
