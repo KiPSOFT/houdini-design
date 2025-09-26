@@ -25,7 +25,6 @@ interface StepFiveProps {
 }
 
 const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }) => {
-  const [products, setProducts] = useState<Product[]>([
   const [isNumberModalOpen, setIsNumberModalOpen] = useState(false);
   const [selectedNumberOption, setSelectedNumberOption] = useState<'new' | 'transfer' | null>(null);
 
@@ -248,7 +247,6 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onBack, selectedCampaigns }
                                 className="w-16 px-2 py-1 border border-slate-300 rounded-lg text-center text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-100 outline-none"
                               />
                               <button
-                                onClick={() => updateProductQuantity(product.id, (product.quantity || 0) + 1)}
                                 onClick={() => setIsNumberModalOpen(true)}
                                 className="px-3 py-1 bg-gradient-to-r from-pink-100 to-purple-100 text-pink-600 rounded-lg text-sm hover:from-pink-200 hover:to-purple-200 transition-all duration-200 font-medium"
                               >
